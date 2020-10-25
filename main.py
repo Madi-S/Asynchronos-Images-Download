@@ -1,12 +1,13 @@
 import asyncio
 import aiohttp
 from time import time, sleep
+from uuid import uuid4
 
 
 
 # Synchronous function to write images
 def write_img(data):
-    filename = f'file_{len(data)}.jpg'  # Creating probably unique filename
+    filename = f'file_{uuid4()}.jpg'  # Creating probably unique filename
     with open(filename, 'wb') as f:
         f.write(data)
         print(len(data), 'wrote')
