@@ -23,13 +23,13 @@ async def main():
     tasks = []  # Empty tasks list
 
     async with aiohttp.ClientSession() as session:  # Creating asynchronous session using aiohttp
-        for _ in range(10):  # Can be replaced with: for url in urls (if lists of urls is used)
+        for _ in range(500):  # Can be replaced with: for url in urls (if lists of urls is used)
             task = asyncio.create_task(fetch_content(url, session))  # Creating task by passing function with its arguments
             tasks.append(task)  # Appending the task to tasks list
 
         await asyncio.gather(*tasks)  # Unpack tasks - [task1,task2,task3] becomes task1,task,task3 ~ multiple arguments instead of a single one
 
-    sleep(0.5) # Sleeping to avoid RunTime Error (works for Windows)
+    sleep(1.5) # Sleeping to avoid RunTime Error (works for Windows)
 
 if __name__ == '__main__': # If the file was called directly
     t1 = time()  # Start time
